@@ -1,9 +1,7 @@
 import React from "react";
 import "antd/dist/antd.css";
-import { Form, Input, Button, Select,Pagination } from "antd";
-import {
-  EyeInvisibleOutlined
-} from '@ant-design/icons';
+import { Form, Input, Button, Select, Pagination } from "antd";
+import { EyeInvisibleOutlined } from "@ant-design/icons";
 const { Option } = Select;
 
 const layout = {
@@ -82,8 +80,15 @@ const FormValidation: React.FC = () => {
       <Form.Item
         name="phone"
         label="Phone Number"
-        rules={[{ required: true},{ max: 10 }]}
-        // rules={[{ required: true, message: "Please input your phone number!" }]}
+        rules={[
+          { required: true },
+          {
+            pattern: new RegExp(
+              "(^(([0-9]{3}) |[0-9]{3}-)[0-9]{3}-[0-9]{4}$)+"
+            ),
+            message: "Phone number is not valid !",
+          },
+        ]}
       >
         <Input addonBefore={prefixSelector} style={{ width: "100%" }} />
       </Form.Item>
@@ -94,7 +99,7 @@ const FormValidation: React.FC = () => {
         requiredMark="optional"
         // rules={[{ required: true, message: "Please input your phone number!" }]}
       >
-        <Input.TextArea showCount maxLength={100}  />
+        <Input.TextArea showCount maxLength={100} />
         {/* <EyeInvisibleOutlined /> */}
         {/* <Input.TextArea /> */}
       </Form.Item>
