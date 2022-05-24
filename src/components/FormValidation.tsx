@@ -68,11 +68,11 @@ const FormValidation: React.FC = () => {
         rules={[
           {
             type: "email",
-            message: "The input is not valid E-mail!",
+            // message: "The input is not valid E-mail!",
           },
           {
             required: true,
-            message: "Please input your E-mail!",
+            // message: "Please input your E-mail!",
           },
         ]}
         hasFeedback
@@ -82,7 +82,8 @@ const FormValidation: React.FC = () => {
       <Form.Item
         name="phone"
         label="Phone Number"
-        rules={[{ required: true, message: "Please input your phone number!" }]}
+        rules={[{ required: true},{ max: 10 }]}
+        // rules={[{ required: true, message: "Please input your phone number!" }]}
       >
         <Input addonBefore={prefixSelector} style={{ width: "100%" }} />
       </Form.Item>
@@ -94,7 +95,7 @@ const FormValidation: React.FC = () => {
         // rules={[{ required: true, message: "Please input your phone number!" }]}
       >
         <Input.TextArea showCount maxLength={100}  />
-        <EyeInvisibleOutlined />
+        {/* <EyeInvisibleOutlined /> */}
         {/* <Input.TextArea /> */}
       </Form.Item>
 
