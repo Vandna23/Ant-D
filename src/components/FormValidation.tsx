@@ -1,23 +1,17 @@
 import React from "react";
-import "antd/dist/antd.css";
+
 import { Form, Input, Button, Select, Pagination } from "antd";
 import { EyeInvisibleOutlined } from "@ant-design/icons";
 const { Option } = Select;
 
+interface IValues {
+  values: string | number;
+}
 const layout = {
   labelCol: { span: 8 },
   wrapperCol: { span: 10 },
 };
-// const handleFormSubmit = () => {
-//   Form.validateFields()
-//     .then(({values}:any) => {
-//       // Submit values
-//       // submitValues(values);
-//     })
-//     .catch(({errorInfo}:any) => {});
-// };
 
-/* eslint-disable no-template-curly-in-string */
 const validateMessages = {
   required: "${label} is required!",
   types: {
@@ -29,8 +23,8 @@ const validateMessages = {
   },
 };
 
-const FormValidation: React.FC = () => {
-  const onFinish = (values: any) => {
+const FormValidation = () => {
+  const onFinish = ({ values }: IValues) => {
     console.log(values);
   };
   const prefixSelector = (
@@ -66,11 +60,9 @@ const FormValidation: React.FC = () => {
         rules={[
           {
             type: "email",
-            // message: "The input is not valid E-mail!",
           },
           {
             required: true,
-            // message: "Please input your E-mail!",
           },
         ]}
         hasFeedback
@@ -86,26 +78,18 @@ const FormValidation: React.FC = () => {
             pattern: new RegExp(
               "(^(([0-9]{3}) |[0-9]{3}-)[0-9]{3}-[0-9]{4}$)+"
             ),
-            message: "Phone number is not valid !",
           },
         ]}
       >
         <Input addonBefore={prefixSelector} style={{ width: "100%" }} />
       </Form.Item>
 
-      <Form.Item
-        name="introduction"
-        label="Description"
-        requiredMark="optional"
-        // rules={[{ required: true, message: "Please input your phone number!" }]}
-      >
+      <Form.Item name="Description" label="Description" requiredMark="optional">
         <Input.TextArea showCount maxLength={100} />
         {/* <EyeInvisibleOutlined /> */}
-        {/* <Input.TextArea /> */}
       </Form.Item>
 
       <Form.Item wrapperCol={{ ...layout.wrapperCol, offset: 8 }}>
-        {/* <Button type="primary" htmlType="submit" onSubmit={handleFormSubmit}> */}
         <Button type="primary" htmlType="submit" block>
           Submit
         </Button>
