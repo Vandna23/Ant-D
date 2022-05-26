@@ -26,13 +26,10 @@ const InvoiceList = (props: IInvoiceListProps) => {
   return (
     <div>
       <h1>{customerName}</h1>
-      <hr />
-
       <div>
         {invoices.map((invoice) => (
           <div key={invoice.id}>
             <div>{invoice.name}</div>
-
             <div>
               {invoice.total} - {invoice.paymentStatus}
             </div>

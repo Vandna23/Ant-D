@@ -1,22 +1,18 @@
 import React from "react";
 
-interface Employee {
-  id: number;
+interface IEmployee {
   name: string;
-  [key: string]: any; // 👈️ index signature
+  salary?: number;
 }
+const arr: IEmployee[] = [{ name: "Tom" }, { name: "Jeff", salary: 100000 }];
 
 const ArrayObjectInterface = () => {
-  const arr: Employee[] = [
-    { id: 1, name: "Tom" },
-    { id: 2, name: "Jeff", salary: 100000 },
-  ];
   return (
     <>
-      <div>ArrayObjectInterface</div>
+      <h1>These are using the Array of Objects</h1>
       <div>
-        {arr.map((data) => (
-          <div key={data.id}>
+        {arr.map((data, index) => (
+          <div key={index}>
             <div>{data.name}</div>
             <div>{data.salary}</div>
           </div>

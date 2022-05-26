@@ -1,7 +1,5 @@
-import React from "react";
-
 import { Form, Input, Button, Select, Pagination } from "antd";
-import { EyeInvisibleOutlined } from "@ant-design/icons";
+// import { EyeInvisibleOutlined } from "@ant-design/icons";
 const { Option } = Select;
 
 interface IValues {

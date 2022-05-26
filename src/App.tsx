@@ -1,21 +1,21 @@
 import "./App.css";
-import FormValidation from "./components/FormValidation";
-import LayoutDesign from "./components/LayoutDesign";
-import Website from "./components/Website";
+// import FormValidation from "./components/FormValidation";
+// import LayoutDesign from "./components/LayoutDesign";
+// import Website from "./components/Website";
 import InterfaceDemo from "./components/InterfaceDemo";
 import { useState } from "react";
 import { Button } from "antd";
-import Modal from "./components/Modal";
+import ModalData from "./components/ModalData";
 import ArrayObjectInterface from "./components/ArrayObjectInterface";
 import ArrayObject from "./components/ArrayObject";
 
 function App() {
   const [isVisible, setVisible] = useState(false);
-  const [modal, setModal] = useState(true);
-  const Toggle = () => {
-    setModal(!modal);
-    // console.log("You aretoggling", setModal);
-  };
+  const [modal, setModal] = useState(false);
+  // const Toggle = () => {
+  //   setModal(!modal);
+  //   // console.log("You aretoggling", setModal);
+  // };
 
   const handleClick = () => {
     if (isVisible) {
@@ -44,11 +44,11 @@ function App() {
         status="single"
         vandna={true}
       >
-        salary=50000k
+        This is option interface salary=50000k
       </InterfaceDemo>
       <Button onClick={() => handleClick()} children="Check" />
-      <Button onClick={() => Toggle()} children="Modal" />
-      <Modal show={modal} />
+      <Button onClick={() => setModal(true)} children="ModalData" />
+      <ModalData show={modal} hideModal={(value: boolean) => setModal(value)} />
       <ArrayObjectInterface />
       <ArrayObject />
     </div>
