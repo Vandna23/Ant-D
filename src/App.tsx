@@ -8,13 +8,15 @@ import { Button } from "antd";
 import ModalData from "./components/ModalData";
 import ArrayObjectInterface from "./components/ArrayObjectInterface";
 import ArrayObject from "./components/ArrayObject";
+import SvgComponent from "./assets/svg/SvgComponent";
+import Home from "./components/Home";
 
 function App() {
   const [isVisible, setVisible] = useState(false);
-  const [modal, setModal] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
   // const Toggle = () => {
-  //   setModal(!modal);
-  //   // console.log("You aretoggling", setModal);
+  //   setIsOpen(!modal);
+  //   // console.log("You aretoggling", setIsOpen);
   // };
 
   const handleClick = () => {
@@ -30,13 +32,17 @@ function App() {
       {/* <Website /> */}
       {/* <LayoutDesign /> */}
       {/* <FormValidation /> */}
+
       {/* <InterfaceDemo
         name={"vandna"}
         color={"red"}
         age={45}
         status="single"
         vandna={false}
-      /> */}
+      />
+      <div className="svg">
+        <SvgComponent fill="red" />
+      </div>
       <InterfaceDemo
         name={"vandna"}
         color={"red"}
@@ -47,10 +53,11 @@ function App() {
         This is option interface salary=50000k
       </InterfaceDemo>
       <Button onClick={() => handleClick()} children="Check" />
-      <Button onClick={() => setModal(true)} children="ModalData" />
-      <ModalData show={modal} hideModal={(value: boolean) => setModal(value)} />
+      <Button onClick={() => setIsOpen(true)} children="ModalData" />
+      <ModalData isOpen={isOpen} hideModal={(value: boolean) => setIsOpen(value)} />
       <ArrayObjectInterface />
-      <ArrayObject />
+      <ArrayObject /> */}
+      <Home />
     </div>
   );
 }

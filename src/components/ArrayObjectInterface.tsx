@@ -1,10 +1,15 @@
-import React from "react";
+import { ReactElement } from "react";
+import SvgComponent from "../assets/svg/SvgComponent";
 
 interface IEmployee {
   name: string;
   salary?: number;
+  image?: ReactElement;
 }
-const arr: IEmployee[] = [{ name: "Tom" }, { name: "Jeff", salary: 100000 }];
+const arr: IEmployee[] = [
+  { name: "Tom", image: <SvgComponent fill="red" /> },
+  { name: "Jeff", salary: 100000 },
+];
 
 const ArrayObjectInterface = () => {
   return (
@@ -15,6 +20,7 @@ const ArrayObjectInterface = () => {
           <div key={index}>
             <div>{data.name}</div>
             <div>{data.salary}</div>
+            <div>{data.image}</div>
           </div>
         ))}
       </div>
