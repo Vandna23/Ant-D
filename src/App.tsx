@@ -2,6 +2,8 @@ import "./App.css";
 // import FormValidation from "./components/FormValidation";
 // import LayoutDesign from "./components/LayoutDesign";
 // import Website from "./components/Website";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+
 import InterfaceDemo from "./components/InterfaceDemo";
 import { useState } from "react";
 import { Button } from "antd";
@@ -10,6 +12,8 @@ import ArrayObjectInterface from "./components/ArrayObjectInterface";
 import ArrayObject from "./components/ArrayObject";
 import SvgComponent from "./assets/svg/SvgComponent";
 import Home from "./components/Home";
+import Dashboard from "./components/Dashboard";
+import CheckboxAgain from "./components/Checkbox";
 
 function App() {
   const [isVisible, setVisible] = useState(false);
@@ -57,7 +61,14 @@ function App() {
       <ModalData isOpen={isOpen} hideModal={(value: boolean) => setIsOpen(value)} />
       <ArrayObjectInterface />
       <ArrayObject /> */}
-      <Home />
+      <Router>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/checkbox" element={<CheckboxAgain />} />
+        </Routes>
+      </Router>
+      {/* <Home /> */}
     </div>
   );
 }
