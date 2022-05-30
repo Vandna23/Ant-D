@@ -14,6 +14,8 @@ import SvgComponent from "./assets/svg/SvgComponent";
 import Home from "./components/Home";
 import Dashboard from "./components/Dashboard";
 import CheckboxAgain from "./components/Checkbox";
+import TableContent from "./components/TableContent";
+import Cards from "./components/Cards";
 
 function App() {
   const [isVisible, setVisible] = useState(false);
@@ -66,6 +68,8 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/checkbox" element={<CheckboxAgain />} />
+          <Route path="/table" element={<TableContent />} />
+          <Route path="/cards" element={<Cards />} />
         </Routes>
       </Router>
       {/* <Home /> */}
