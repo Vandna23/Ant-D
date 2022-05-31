@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Card, Checkbox } from "antd";
 
 const { Meta } = Card;
@@ -9,7 +9,7 @@ interface IData {
   description: string;
 }
 
-const CardData = [
+const CardData: IData[] = [
   {
     checked: false,
     cover: "https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png",
@@ -56,10 +56,11 @@ const CardData = [
 
 const Cards = () => {
   const [array, setArray] = useState<IData[]>(CardData);
+  console.log("array use ", array);
 
   const onChange = (index: number) => {
     const newArray = [...array];
-    newArray.map((item: IData, i: number) => {
+    newArray.map((item, i) => {
       if (i === index) {
         item.checked = true;
       } else {
@@ -70,28 +71,29 @@ const Cards = () => {
     console.log("newArray", newArray);
   };
   return (
-    <div>
-      {array.map((data: IData, index: number) => {
-        console.log("index", index);
-        console.log("data", data);
-        return (
-          <Card
-            key={index}
-            hoverable
-            style={{ width: 240 }}
-            cover={<img alt="example" src={data?.cover} />}
-            onClick={() => onChange(index)}
-          >
-            <Meta title={data.title} description={data.description} />
+    <>
+      <h2>Onlick Checked the card</h2>
+      <div className="card">
+        {array.map((data, index) => {
+          console.log("index", index);
+          console.log("data", data);
+          return (
+            <Card
+              key={index}
+              hoverable
+              style={{ width: 240 }}
+              cover={<img alt="example" src={data?.cover} />}
+              onClick={() => onChange(index)}
+            >
+              <Meta title={data.title} description={data.description} />
 
-            {data.checked ? (
-              <Checkbox checked={data.checked}>Click</Checkbox>
-            ) : null}
-          </Card>
-        );
-      })}
-      ;
-    </div>
+              {data.checked ? <Checkbox checked={data.checked} /> : null}
+            </Card>
+          );
+        })}
+        ;
+      </div>
+    </>
   );
 };
 
